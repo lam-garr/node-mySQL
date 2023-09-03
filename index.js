@@ -1,8 +1,16 @@
 //const mysql = require("mysql");
+import mysql from "mysql";
 import express from "express";
 import dotenv from "dotenv";
 
 dotenv.config();
+
+const db = mysql.createConnection({
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.evnv.MYSQL_DATABASE
+});
 
 const app = express();
 
