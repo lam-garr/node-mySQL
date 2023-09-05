@@ -21,6 +21,14 @@ db.connect((err) => {
 
 const app = express();
 
+app.get("/createdb", (req, res) => {
+    let sql = "CREATE DATABASE samplenodemysql";
+    db.query(sql, (err, result) => {
+        if(err) throw err;
+        res.send("Success");;
+    })
+});
+
 app.listen(process.env.PORT, ()=> {
     console.log(`Server listening on port ${process.env.PORT}`);
 })
