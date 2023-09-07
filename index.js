@@ -30,12 +30,21 @@ app.get("/createdb", (req, res) => {
 });
 
 app.get("createtable", (req, res) => {
-    let sql = "CREATE TABLE user(id int AUTO_INCREMENT, name VARCHAR(255), desc VARCHAR(225), PRIMARY KEY (id))";
+    let sql = "CREATE TABLE users(id int AUTO_INCREMENT, name VARCHAR(255), desc VARCHAR(225), PRIMARY KEY (id))";
     db.query(sql, (err, result) => {
         if(err) throw err;
         res.send("Successfully created table");
     });
 });
+
+app.get("insertitem", (req, res) => {
+    let item = {name: "John", desc: "This is John"};
+    let sql = "INSERT INTO users SET ?";
+    let query = db.query(sql, item, (err, result) => {
+        if(err) throw err;
+        res.send("Successfully inserted")
+    })
+})
 
 app.listen(process.env.PORT, ()=> {
     console.log(`Server listening on port ${process.env.PORT}`);
