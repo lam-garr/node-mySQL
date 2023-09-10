@@ -46,6 +46,14 @@ app.get("insertitem", (req, res) => {
     })
 })
 
+app.get("getallitems", (req, res) => {
+    let sql = "SELECT * FROM users";
+    let query = db.query(sql, (err, results) => {
+        if(err) throw err;
+        res.send("Successfully selected all")
+    })
+})
+
 app.listen(process.env.PORT, ()=> {
     console.log(`Server listening on port ${process.env.PORT}`);
 })
