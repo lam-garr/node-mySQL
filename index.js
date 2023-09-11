@@ -54,6 +54,14 @@ app.get("getallitems", (req, res) => {
     })
 })
 
+app.get("getitem", (req, res) => {
+    let sql = `SELECT * FROM users WHERE id = ${req.id}`;
+    let query = db.query(sql, (err, result) => {
+        if(err) throw err;
+        res.send("Succesfully selected")
+    })
+})
+
 app.listen(process.env.PORT, ()=> {
     console.log(`Server listening on port ${process.env.PORT}`);
 })
