@@ -62,6 +62,15 @@ app.get("getitem", (req, res) => {
     })
 })
 
+app.get("updateitem", (req, res) => {
+    let update = req.update;
+    let sql = `UPDATE users SET name = ${update} WHERE id = ${req.id}`;
+    let query = db.query(sql, (err, result) => {
+        if(err) throw err;
+        res.send("Successfully updated");
+    });
+});
+
 app.listen(process.env.PORT, ()=> {
     console.log(`Server listening on port ${process.env.PORT}`);
 })
