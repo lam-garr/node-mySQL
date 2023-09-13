@@ -71,6 +71,14 @@ app.get("updateitem", (req, res) => {
     });
 });
 
+app.get("deleteitem", (req, res) => {
+    let sql = `DELETE FROM users where id = ${req.id}`;
+    let query = db.query(sql, (err, result0 => {
+        if(err) throw err;
+        res.send("Succeddfully deleted");
+    }));
+});
+
 app.listen(process.env.PORT, ()=> {
     console.log(`Server listening on port ${process.env.PORT}`);
 })
