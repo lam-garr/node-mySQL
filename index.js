@@ -2,10 +2,11 @@
 import mysql from "mysql";
 import express from "express";
 import dotenv from "dotenv";
+import apiRoutes from "./route/apiRoutes.js";
 
 dotenv.config();
 
-const db = mysql.createConnection({
+/* const db = mysql.createConnection({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
@@ -17,11 +18,13 @@ db.connect((err) => {
         throw err;
     }
     console.log("Connected");
-})
+}) */
 
 const app = express();
+app.use(express.json());
+app.use("/api", apiRoutes);
 
-app.get("/createdb", (req, res) => {
+/* app.get("/createdb", (req, res) => {
     let sql = "CREATE DATABASE samplenodemysql";
     db.query(sql, (err, result) => {
         if(err) throw err;
@@ -78,7 +81,7 @@ app.get("deleteitem", (req, res) => {
         res.send("Succeddfully deleted");
     }));
 });
-
+ */
 app.listen(process.env.PORT, ()=> {
     console.log(`Server listening on port ${process.env.PORT}`);
 })
