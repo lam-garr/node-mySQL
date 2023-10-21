@@ -1,5 +1,5 @@
 import express from "express";
-import { GET_index } from "../controller/apiControllers.js";
+import { GET_index} from "../controller/apiControllers.js";
 
 const router = express.Router();
 

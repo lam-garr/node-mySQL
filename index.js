@@ -3,6 +3,7 @@ import mysql from "mysql";
 import express from "express";
 import dotenv from "dotenv";
 import apiRoutes from "./route/apiRoutes.js";
+import db from "./db.js"
 
 dotenv.config();
 
@@ -11,14 +12,14 @@ dotenv.config();
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE
-});
+}); */
 
 db.connect((err) => {
     if(err) {
         throw err;
     }
     console.log("Connected");
-}) */
+})
 
 const app = express();
 app.use(express.json());
