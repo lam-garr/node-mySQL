@@ -9,9 +9,11 @@ const db = mysql.createPool({
     database: process.env.MYSQL_DATABASE
 }).promise();
 
-export async function getNotes() {
+/* export async function getNotes() {
     const [rows] = await db.query("SELECT * FROM notes");
     return rows;
-}
+} */
+
+export default db;
 
 
