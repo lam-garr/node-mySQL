@@ -5,6 +5,11 @@ class Note {
         this.title = title;
         this.contents = contents;
     }
+
+    static findAll() {
+        let sql = "SELECT * FROM notes";
+        return db.execute(sql);
+    }
 }
 
 export default Note;
