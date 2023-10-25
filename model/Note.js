@@ -10,6 +10,10 @@ class Note {
         let sql = "SELECT * FROM notes";
         return db.execute(sql);
     }
+
+    static findOne(id) {
+        return db.query(`SELECT * FROM notes WHERE id = ${id}`)
+    }
 }
 
 export default Note;

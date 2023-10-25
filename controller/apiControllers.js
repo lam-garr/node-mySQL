@@ -9,3 +9,8 @@ export async function GET_allNotes(req, res) {
     const [results] = await Note.findAll();
     res.send(results);
 }
+
+export async function GET_oneNote(req, res) {
+    const [results] = await Note.findOne(1);
+    res.send(results);
+}
