@@ -14,3 +14,8 @@ export async function GET_oneNote(req, res) {
     const [results] = await Note.findOne(1);
     res.send(results);
 }
+
+export async function POST_saveNote(req, res) {
+    const [results] = await Note.save("Another note", "note of something else");
+    res.json(results.insertId);
+}

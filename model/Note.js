@@ -14,6 +14,11 @@ class Note {
     static findOne(id) {
         return db.query(`SELECT * FROM notes WHERE id = ${id}`)
     }
+
+    static save(title, contents) {
+        return db.query(`INSERT INTO notes (title, contents) VALUES (?,?)`,
+        [title, contents]);
+    }
 }
 
 export default Note;
