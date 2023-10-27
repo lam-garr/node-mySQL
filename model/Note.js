@@ -19,6 +19,10 @@ class Note {
         return db.query(`INSERT INTO notes (title, contents) VALUES (?,?)`,
         [title, contents]);
     }
+
+    static updateTitle(newTitle, id) {
+        return db.query(`UPDATE notes SET title = '${newTitle}' WHERE id = ${id}`);
+    }
 }
 
 export default Note;

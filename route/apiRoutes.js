@@ -1,5 +1,5 @@
 import express from "express";
-import { GET_index, GET_allNotes, GET_oneNote, POST_saveNote} from "../controller/apiControllers.js";
+import { GET_index, GET_allNotes, GET_oneNote, POST_saveNote, POST_updateTitle} from "../controller/apiControllers.js";
 
 const router = express.Router();
 
@@ -15,6 +15,8 @@ router.get("/getallnotes", GET_allNotes);
 router.get("/getonenote", GET_oneNote);
 
 router.get("/savenote", POST_saveNote);
+
+router.get("/updatetitle", POST_updateTitle);
 
 export default router;
 

@@ -19,3 +19,8 @@ export async function POST_saveNote(req, res) {
     const [results] = await Note.save("Another note", "note of something else");
     res.json(results.insertId);
 }
+
+export async function POST_updateTitle(req, res) {
+    const [results] = await Note.updateTitle("New Title", 3);
+    res.json(results);
+}
