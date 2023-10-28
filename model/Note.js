@@ -23,6 +23,10 @@ class Note {
     static updateTitle(newTitle, id) {
         return db.query(`UPDATE notes SET title = '${newTitle}' WHERE id = ${id}`);
     }
+
+    static deleteOne(id) {
+        return db.query(`DELETE FROM notes WHERE id = ${id}`);
+    }  
 }
 
 export default Note;

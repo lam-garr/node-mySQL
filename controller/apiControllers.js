@@ -24,3 +24,8 @@ export async function POST_updateTitle(req, res) {
     const [results] = await Note.updateTitle("New Title", 3);
     res.json(results);
 }
+
+export async function POST_deleteNote(req, res) {
+    const [results] = await Note.deleteOne(3);
+    res.json(results);
+}
