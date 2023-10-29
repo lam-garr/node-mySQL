@@ -1,5 +1,8 @@
 import express from "express";
-import { GET_index, GET_allNotes, GET_oneNote, POST_saveNote, POST_updateTitle, POST_deleteNote} from "../controller/apiControllers.js";
+import { GET_index, GET_allNotes, 
+    GET_oneNote, POST_saveNote, 
+    POST_updateTitle, POST_deleteNote,
+    POST_updateContents} from "../controller/apiControllers.js";
 
 const router = express.Router();
 
@@ -17,6 +20,8 @@ router.get("/getonenote", GET_oneNote);
 router.get("/savenote", POST_saveNote);
 
 router.get("/updatetitle", POST_updateTitle);
+
+router.get("/updatecontents", POST_updateContents);
 
 router.get("/deletenote", POST_deleteNote);
 

@@ -25,6 +25,11 @@ export async function POST_updateTitle(req, res) {
     res.json(results);
 }
 
+export async function POST_updateContents(req, res) {
+    const [results] = await Note.updateContents("New Contents", 5);
+    res.json(results);
+}
+
 export async function POST_deleteNote(req, res) {
     const [results] = await Note.deleteOne(3);
     res.json(results);
