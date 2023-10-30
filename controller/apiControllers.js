@@ -34,3 +34,8 @@ export async function POST_deleteNote(req, res) {
     const [results] = await Note.deleteOne(3);
     res.json(results);
 }
+
+export async function GET_createdTime(req, res) {
+    const [results] = await Note.getCreatedTime(1);
+    res.json(results[0].created);
+}
