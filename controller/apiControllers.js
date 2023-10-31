@@ -39,3 +39,8 @@ export async function GET_createdTime(req, res) {
     const [results] = await Note.getCreatedTime(1);
     res.json(results[0].created);
 }
+
+export async function GET_noteId(req, res) {
+    const [results] = await Note.getId(1);
+    res.json(results[0].id);
+}

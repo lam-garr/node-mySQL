@@ -32,6 +32,10 @@ class Note {
         return db.query(`SELECT * FROM notes WHERE id = ${id}`)
     }
 
+    static getId(id) {
+        return db.query(`SELECT * FROM notes WHERE id = ${id}`);
+    }
+
     static deleteOne(id) {
         return db.query(`DELETE FROM notes WHERE id = ${id}`);
     }  
